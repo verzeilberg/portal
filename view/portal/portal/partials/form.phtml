@@ -1,0 +1,29 @@
+<?php echo $this->form()->openTag($form); ?>
+<div class="form-group row">
+    <?php echo $this->formLabel($form->get('title')); ?>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <?php echo $this->formText($form->get('title')); ?>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <?php echo (count($form->getMessages('title')) > 0 ? $form->getMessages('title')['isEmpty'] : '&nbsp;' ) ?>
+    </div>
+</div>
+<div class="form-group row">
+    <?php echo $this->formLabel($form->get('content')); ?>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <?php echo $this->formTextArea($form->get('content')); ?>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <?php echo (count($form->getMessages('content')) > 0 ? $form->getMessages('content')['isEmpty'] : '&nbsp;' ) ?>
+    </div>
+</div>
+<div class="form-group row">
+    <?php echo $this->formLabel($form->get('link')); ?>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <?php echo $this->formText($form->get('link')); ?>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <?php echo (count($form->getMessages('link')) > 0 ? $form->getMessages('link')['isEmpty'] : '&nbsp;' ) ?>
+    </div>
+</div>
+<?php echo $this->form()->closeTag($form); ?>

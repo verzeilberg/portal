@@ -1,0 +1,45 @@
+<?php
+$this->headTitle('Panels');
+
+$this->mainMenu()->setActiveItemId('portal');
+
+$this->pageBreadcrumbs()->setItems([
+    'Home' => $this->url('home'),
+    'Manage panels' => $this->url('panels'),
+]);
+?>
+
+<h1>Manage panels</h1>
+
+<p>
+    <a class="btn btn-dark" href="
+       <?= $this->url('panels', ['action' => 'add']); ?>">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New panel
+    </a>
+</p>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>Title</th>
+        <th>Date created</th>
+    </tr>
+
+    <?php foreach ($panels as $panel): ?>
+
+        <tr>
+            <td>
+                <?= $this->escapeHtml($panel->getTitle()); ?></a> 
+            </td>
+            <td><nobr><?= (is_object($panel->getDateCreated()) ? $this->escapeHtml($panel->getDateCreated()->format('Y-m-d')) : ''); ?></nobr></td>        
+    <td>
+        <a class="btn btn-info" href="<?= $this->url('panels', ['action' => 'edit', 'id' => $panel->getId()]);
+            ?>">
+            <span class="glyphicon glyphicon-pencil" ></span> Edit
+        </a>
+    </td>    
+    </tr>
+
+<?php endforeach; ?>   
+
+</table>
